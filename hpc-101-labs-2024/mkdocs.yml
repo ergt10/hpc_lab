@@ -1,0 +1,138 @@
+# 项目设置
+site_name: HPC101-Labs-2024
+site_url: https://zjusct.pages.zjusct.io/summer_hpc101_2024/hpc-101-labs-2024/
+repo_url: https://git.zju.edu.cn/zjusct/summer_hpc101_2024/hpc-101-labs-2024
+repo_name: zjusct/HPC101-Labs-2024
+edit_uri: -/tree/main/docs/
+site_description: 浙江大学计算机学院暑期课程 HPC101 实验网站
+site_author: ZJUSCT
+copyright: ZJUSCT
+
+nav:
+  - 课程信息:
+    - 首页: index.md
+    - Hello HPC World!: Intro/index.md
+    - 更新历史: changelog.md
+    #- 集群使用指南: Cluster/index.md
+  - 课程实验:
+    - Lab0-Linux Crash Course: Lab0-LinuxCrashCourse/index.md
+    - Lab1-简单集群搭建: Lab1-MiniCluster/index.md
+    - Lab2-向量化计算: Lab2-Vectors/index.md
+    # - Lab2.5-Bonus 手写 SIMD 向量化: Lab2.5-Vectors-Bonus/index.md
+    # - Lab3-CUDA 使用基础: Lab3-Cuda/index.md
+    # - Lab4-PCG Solver: Lab4-PCG-Solver/index.md
+    # - Lab5-简单神经网络训练与加速: Lab5-DL/index.md
+    # - Project-并行优化: Project-Pivot/index.md
+
+theme:
+  font:
+    text: Roboto
+    code: JetBrains Mono
+  name: material
+  logo: assets/zjusct.svg
+  favicon: assets/zjusct.png
+  icon:
+    repo: fontawesome/brands/gitlab
+  # 自适应主题
+  palette:
+    - media: "(prefers-color-scheme)"
+      primary: pink
+      toggle:
+        icon: material/brightness-auto
+        name: 切换至浅色模式
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: zjusct
+      toggle:
+        icon: material/brightness-7
+        name: 切换至深色模式
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 根据系统模式切换主题
+  features:
+    # 代码块操作
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    # 页面编辑
+    - content.action.edit
+    # 底部导航
+    - navigation.footer
+    # 顶部导航
+    - navigation.tabs
+    # 返回顶部
+    - navigation.top
+    # 搜索
+    - search.suggest
+    - search.highlight
+    - search.share
+
+markdown_extensions:
+  # Admonition
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+  # Mermaid
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  # Code Block
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  # Tab Card
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Grid, Image
+  - attr_list
+  - md_in_html
+  # Icon
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg 
+  # List
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # TOC
+  - toc:
+      permalink: true
+      toc_depth: 3
+  # MathJax
+  - pymdownx.arithmatex:
+      generic: true
+  # Keys
+  - pymdownx.keys
+  # Timeline
+  - neoteroi.timeline
+  - neoteroi.cards
+
+extra_javascript:
+  # MathJax
+  - https://polyfill.alicdn.com/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # Table Sort
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
+extra_css:
+  - fonts/fonts.css
+  - stylesheets/auto_counter.css
+  - stylesheets/theme.css
+  - stylesheets/neoteroi.css
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-authors
+  - search
+  - glightbox

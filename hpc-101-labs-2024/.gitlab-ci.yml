@@ -1,0 +1,15 @@
+pages:
+  tags:
+    - pages-builder
+  stage: deploy
+  script:
+    - dummy
+  variables:
+    BUILDER: 'mkdocs'
+    GIT_DEPTH: '1000'
+    WORKING_DIR: ''
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
